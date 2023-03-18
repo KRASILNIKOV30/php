@@ -58,3 +58,5 @@ foreach(arrayNumberFilter($array2) as $num)
     echo "$num ";
 }
 echo "\n";
+
+echo arrayEquals(['a' => 1, 'b' => 2], ['b' => 2, 'a' => 1]);
