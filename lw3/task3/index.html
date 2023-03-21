@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task3</title>
+</head>
+<body>
+    <form action="user.php" method="POST">
+        <fieldset>
+            <label for="lastNameInput">Фамилия:</label>
+            <input id="lastNameInput" type="text" name="last_name" required>
+        </fieldset>
+
+        <fieldset>
+            <label for="firstNameInput">Имя:</label>
+            <input id="firstNameInput" type="text" name="first_name" required>
+        </fieldset>
+
+        <fieldset>
+            <label for="patronymicInput">Отчество:</label>
+            <input id="patronymicInput" type="text" name="patronymic">
+        </fieldset>
+
+        <fieldset>
+            <label for="genderSelect">Пол:</label>
+            <select id="genderSelect" name="gender" required>
+                <option>Мужской</option>
+                <option>Женский</option>
+            </select>
+        </fieldset>
+
+        <fieldset>
+            <label for="birthDateInput">Дата рождения:</label>
+            <input id="birthDateInput" type="date" name="birth_date" required>
+        </fieldset>
+
+        <fieldset>
+            <label for="emailInput">Email:</label>
+            <input id="emailInput" type="email" name="email" required>
+        </fieldset>
+
+        <fieldset>
+            <label for="phoneInput">Телефон:</label>
+            <input id="phoneInput" type="tel" name="phone">
+        </fieldset>
+
+        <fieldset>
+            <label for="avatarInput">Аватар:</label>
+            <input id="avatarInput" type="file" name="avatar">
+        </fieldset>
+
+        <button type="submit">Отправить</button>
+    </form>
+</body>
+</html>

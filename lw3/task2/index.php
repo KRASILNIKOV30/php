@@ -7,8 +7,11 @@ function parseDictDataFromFile(string $fileName): array
     while (!feof($file))
     {
         $line = fgets($file);
-        $parsed = explode(':', $line);
-        $result += ["$parsed[0]" => $parsed[1]];
+        if (!empty($line))
+        {
+            $parsed = explode(':', $line);
+            $result += ["$parsed[0]" => $parsed[1]];
+        }
     }
     fclose($file);
 
@@ -24,14 +27,14 @@ if ($dh = opendir('dict'))
         {
             continue;
         }
-        array_merge($dict, parseDictDataFromFile($file));
+        $dict += parseDictDataFromFile($file);
     }
     closedir($dh);
     ksort($dict);
     $output = fopen('out.txt', 'w');
     foreach ($dict as $key => $value)
     {
-        fwrite($output, $key . ': ' . $value . "\n");
+        fwrite($output, $key . ': ' . $value);
     }
     fclose($output);
 }
