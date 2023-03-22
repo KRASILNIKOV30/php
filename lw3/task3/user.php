@@ -4,6 +4,7 @@ $file = fopen('users.json', 'r');
 $usersJSON = file_get_contents('users.json');
 $users = !empty($usersJSON) ? json_decode($usersJSON, true) : [];
 $file = fopen('users.json', 'w');
+
 $newUser = array(
     'lastName' => htmlentities($_POST['last_name']),
     'firstName' => htmlentities($_POST['first_name']),
@@ -14,6 +15,7 @@ $newUser = array(
     'phone' => htmlentities($_POST['phone']) ?? '',
     'avatar' => htmlentities($_POST['avatar']) ?? ''
 );
+
 $isEmailUnique = true;
 $isPhoneUnique = true;
 if (!empty($users))
@@ -32,6 +34,7 @@ if (!empty($users))
         }
     }
 }
+
 if ($isEmailUnique && $isPhoneUnique)
 {
     $users[] = $newUser;
@@ -49,5 +52,8 @@ else
 $json = json_encode($users, JSON_UNESCAPED_UNICODE);
 fwrite($file, $json);
 fclose($file);
+// TODO: Разбить на модуль проверку на уникальность
+// TODO: вынести ответ в функцию
+// TODO: добавить проверки на существование полей
 
 

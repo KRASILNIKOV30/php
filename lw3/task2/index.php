@@ -1,8 +1,9 @@
 <?php
 
 require_once 'dictParser.php';
+require 'common.php';
 
-if ($dh = opendir('dict'))
+if ($dh = opendir(DIR_NAME))
 {
     $dict = [];
     while (($file = readdir($dh)) !== false)

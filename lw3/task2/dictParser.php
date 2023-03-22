@@ -1,9 +1,11 @@
 <?php
 
+require 'common.php';
+
 function parseDictDataFromFile(string $fileName): array
 {
     $result = [];
-    $file = fopen("dict/" . $fileName, 'r');
+    $file = fopen(DIR_NAME . '/' . $fileName, 'r');
     while (!feof($file))
     {
         $line = fgets($file);
