@@ -1,11 +1,11 @@
 <?php
 
-/*require_once './UserController.php';
+require_once './UserController.php';
 require_once '../Model/User.php';
 require_once '../Database/UserRepository.php';
-require_once '../Common/Database/ConnectionProvider.php';*/
+require_once '../Common/Database/ConnectionProvider.php';
 
-/*$userData = [
+$userData = [
     'firstName' => htmlentities($_POST['first_name']),
     'lastName' => htmlentities($_POST['last_name']),
     'middleName' => htmlentities($_POST['middle_name']) ?? '',
@@ -26,9 +26,9 @@ $user = new User(
     $userData['email'],
     $userData['phone'],
     $userData['avatar']
-);*/
+);
 
-//$userRepository = new UserRepository(ConnectionProvider::getConnection());
-//$userId = $userRepository->save($user);
+$userRepository = new UserRepository(ConnectionProvider::getConnection());
+$userId = $userRepository->save($user);
 
-echo "Hello";
+echo "<h3>User saved successfully (id: {$userId})</h3>";

@@ -18,16 +18,15 @@ class UserRepository
     {
         $query = <<<SQL
         INSERT INTO user
-           (user_id, first_name, last_name, middle_name, gender, birth_date, email, phone, avatar_path)
+           (first_name, last_name, middle_name, gender, birth_date, email, phone, avatar_path)
         VALUES
-           (:user_id, :first_name, :last_name, :middle_name, :gender, :birth_date, :email, :phone, :avatar_path) 
+           (:first_name, :last_name, :middle_name, :gender, :birth_date, :email, :phone, :avatar_path) 
         SQL;
 
         $params = [
-            ':user_id' => $user->getUserId(),
             ':first_name' => $user->getFirstName(),
-            ':lastName' => $user->getLastName(),
-            ':middleName' => $user->getMiddleName(),
+            ':last_name' => $user->getLastName(),
+            ':middle_name' => $user->getMiddleName(),
             ':gender' => $user->getGender(),
             ':birth_date' => $user->getBirthDate(),
             ':email' => $user->getEmail(),
