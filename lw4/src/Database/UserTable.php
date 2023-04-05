@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Database;
 
 use App\Common\Database\Connection;
+use App\Common\Utilities\DateFormatter;
 use App\Model\User;
 use PDO;
 use RuntimeException;
@@ -24,7 +25,7 @@ class UserTable
         INSERT INTO user
            (first_name, last_name, middle_name, gender, birth_date, email, phone, avatar_path)
         VALUES
-           (:first_name, :last_name, :middle_name, :gender, :birth_date, :email, :phone, :avatar_path) 
+           (:first_name, :last_name, :middle_name, :gender, STR_TO_DATE(:birth_date, 'M/D/Y'), :email, :phone, :avatar_path) 
         SQL;
 
         $params = [
@@ -32,7 +33,7 @@ class UserTable
             ':last_name' => $user->getLastName(),
             ':middle_name' => $user->getMiddleName(),
             ':gender' => $user->getGender(),
-            ':birth_date' => $user->getBirthDate(),
+            ':birth_date' => DateFormatter::parseDateToStr($user->getBirthDate()),
             ':email' => $user->getEmail(),
             ':phone' => $user->getPhone(),
             ':avatar_path' => $user->getAvatarPath()
@@ -75,7 +76,7 @@ class UserTable
             $data['last_name'],
             $data['middle_name'],
             $data['gender'],
-            $data['birth_date'],
+            DateFormatter::parseStrToDate($data['birth_date']),
             $data['email'],
             $data['phone'],
             $data['avatar_path']

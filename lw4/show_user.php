@@ -1,6 +1,10 @@
 <?php
 
-use App\Common\Database\ConnectionProvider;
-use App\Database\UserTable;
+use App\Controller\UserController;
+
+require_once 'vendor/autoload.php';
+
+$controller = new UserController();
+$controller->showUser();
 
 

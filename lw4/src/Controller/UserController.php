@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Common\Database\ConnectionProvider;
+use App\Common\Utilities\DateFormatter;
 use App\Database\UserTable;
-
 use App\Model\User;
 use RuntimeException;
 
@@ -31,14 +31,14 @@ class UserController
             $userData['lastName'],
             $userData['middleName'],
             $userData['gender'],
-            $userData['birthDate'],
+            DateFormatter::parseStrToDate($userData['birthDate']),
             $userData['email'],
             $userData['phone'],
             $userData['avatar']
         );
 
-        $userRepository = new UserTable(ConnectionProvider::getConnection());
-        $userId = $userRepository->save($user);
+        $userTable = new UserTable(ConnectionProvider::getConnection());
+        $userId = $userTable->save($user);
         header("Location: http://localhost:8000/show_user.php?user_id=$userId");
     }
 

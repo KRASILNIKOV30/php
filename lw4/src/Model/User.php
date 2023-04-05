@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Model;
 
+use DateTime;
+
 class User
 {
     private ?int $userId;
@@ -11,7 +13,7 @@ class User
     private string $lastName;
     private ?string $middleName;
     private string $gender;
-    private string $birth_date;
+    private DateTime $birth_date;
     private string $email;
     private ?string $phone;
     private ?string $avatar_path;
@@ -22,7 +24,7 @@ class User
         string $lastName,
         ?string $middleName,
         string $gender,
-        string $birth_date,
+        DateTime $birth_date,
         string $email,
         ?string $phone,
         ?string $avatar_path
@@ -63,7 +65,7 @@ class User
         return $this->gender;
     }
 
-    public function getBirthDate(): string
+    public function getBirthDate(): DateTime
     {
         return $this->birth_date;
     }

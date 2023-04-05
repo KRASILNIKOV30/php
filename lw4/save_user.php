@@ -1,8 +1,7 @@
 <?php
 
 namespace App\Controller;
-require_once __DIR__ . '/src/Controller/UserController.php';
-use App\Controller\UserController;
+require_once 'vendor/autoload.php';
 
 $controller = new UserController();
 $controller->saveUser();

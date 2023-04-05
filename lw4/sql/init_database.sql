@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `user`.`user` (
   `last_name` VARCHAR(255) NOT NULL,
   `middle_name` VARCHAR(255) NULL,
   `gender` VARCHAR(255) NOT NULL,
-  `birth_date` VARCHAR(255) NOT NULL,
+  `birth_date` DATE NOT NULL,
   `email` VARCHAR(320) NOT NULL,
   `phone` VARCHAR(255) NULL,
   `avatar_path` VARCHAR(255) NULL,
