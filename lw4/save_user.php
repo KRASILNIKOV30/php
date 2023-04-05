@@ -1,9 +1,8 @@
 <?php
 
-require_once './UserController.php';
-require_once '../Model/User.php';
-require_once '../Database/UserRepository.php';
-require_once '../Common/Database/ConnectionProvider.php';
+require_once 'src/Model/User.php';
+require_once 'src/Database/UserTable.php';
+require_once 'src/Common/Database/ConnectionProvider.php';
 
 $userData = [
     'firstName' => htmlentities($_POST['first_name']),
@@ -28,7 +27,6 @@ $user = new User(
     $userData['avatar']
 );
 
-$userRepository = new UserRepository(ConnectionProvider::getConnection());
+$userRepository = new UserTable(ConnectionProvider::getConnection());
 $userId = $userRepository->save($user);
-
-echo "<h3>User saved successfully (id: {$userId})</h3>";
+header("Location: http://localhost:8000/show_user.php?user_id=$userId");
