@@ -2,8 +2,12 @@
 
 declare(strict_types=1);
 
-require_once __DIR__ . '/../Common/Database/Connection.php';
-require_once __DIR__ . '/../Model/User.php';
+namespace App\Database;
+
+use App\Common\Database\Connection;
+use App\Model\User;
+use PDO;
+use RuntimeException;
 
 class UserTable
 {

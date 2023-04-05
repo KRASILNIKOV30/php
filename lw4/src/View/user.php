@@ -1,4 +1,4 @@
-<div class="user-content">
+<div>
     <h2>
         <span><?=htmlentities($user->getLastName())?></span>
         <span><?=htmlentities($user->getFirstName())?></span>

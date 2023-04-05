@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-require_once 'Connection.php';
+namespace App\Common\Database;
 
 final class ConnectionProvider
 {
